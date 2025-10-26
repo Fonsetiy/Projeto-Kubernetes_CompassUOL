@@ -69,6 +69,8 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 3. Abra seu navegador e acesse ```https://localhost:8080```. Utilize o usuário a senha obtidos no passo anterior.
 Você verá uma tela parecida com essa:
 
+![Captura de tela 2025-10-26 121649](https://github.com/user-attachments/assets/8468dec1-e0b9-4f4d-a0eb-443a6d79dd1c)
+
 ![argo application1](https://github.com/user-attachments/assets/13f23ca4-5b49-4d73-a2a2-f7d6267d6d52)
 
 ### Etapa 4 - Criar e Sincronizar a aplicação no ArgoCD
@@ -87,10 +89,16 @@ argocd app create online-boutique `
   --dest-namespace default `
   --directory-recurse
 ```
+
+![ONLINE-BOUTIWUE CRRATED](https://github.com/user-attachments/assets/9de628ba-e130-4a13-8d96-753955f7a82d)
+
 🔹 4.2 - Sincronize a sua aplicação utilizando o comando:
 ``` powershell
 argocd app sync online-boutique
 ```
+
+<img width="983" height="654" alt="image" src="https://github.com/user-attachments/assets/c741e520-423a-4b7a-90be-37af840453e6" />
+
 
 ### 🔷 Etapa 5 - Acessar o Front-End
 
@@ -99,11 +107,20 @@ argocd app sync online-boutique
 kubectl get pods -n default
 kubectl get svc -n default
 ```
+<img width="629" height="214" alt="image" src="https://github.com/user-attachments/assets/1eefcd2b-0498-400d-92ed-b4d4761b32ee" />
+
+<img width="558" height="203" alt="image" src="https://github.com/user-attachments/assets/43fa9c63-e948-44e0-a158-a4aad72f9fd5" />
+
 🔹 5.2 - O frontend no manifest é um ClusterIP (frontend) com port 80 → targetPort: 8080. Para acessar localmente faça port-forward:
 ``` powershell
-kubectl port-forward svc/frontend -n default 8080:80
+kubectl port-forward svc/frontend -n default 80:80
 ```
+<img width="592" height="89" alt="image" src="https://github.com/user-attachments/assets/5527a2d1-9e84-46c5-8ffa-982d41e73fec" />
+
+
 🔹 5.3 - Acesse a loja abrindo seu navegador e acessando ```http://localhost:8080```. Você deverá ver a página da "Online Boutique".
+
+![Captura de tela 2025-10-26 125954](https://github.com/user-attachments/assets/a172f596-0201-44e8-abc9-e365acd5375d)
 
 ## Entregas esperadas:
 
